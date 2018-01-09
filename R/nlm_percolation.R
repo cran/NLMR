@@ -2,9 +2,9 @@
 #'
 #' @description Create a random percolation neutral landscape model.
 #'
-#' @param nCol [\code{numerical(1)}]\cr
+#' @param ncol [\code{numerical(1)}]\cr
 #' Number of columns for the raster.
-#' @param nRow [\code{numerical(1)}]\cr
+#' @param nrow [\code{numerical(1)}]\cr
 #' Number of rows for the raster.
 #' @param resolution  [\code{numerical(1)}]\cr
 #' Resolution of the raster.
@@ -15,11 +15,11 @@
 #' The simulation of a random percolation map is accomplished in two steps:
 #'
 #' \itemize{
-#'  \item{Initialization: }{ Setup matrix of size (\code{nCol}*\code{nRow})}
+#'  \item{Initialization: }{ Setup matrix of size (\code{ncol}*\code{nrow})}
 #'  \item{Map generation: }{ For each cell in the matrix a single uniformly
 #'  distributed random number is generated and tested against a probability
 #'  \code{prob}. If the random number is smaller than \code{prob}, the cell is set to
-#'  1 - if it is higher the cell is set to 0.}
+#'  TRUE - if it is higher the cell is set to FALSE.}
 #' }
 #'
 #' The proportion of 0 and 1 is thus controlled with the argument \code{prob}.
@@ -27,8 +27,12 @@
 #' @return RasterLayer
 #'
 #' @examples
-#' nlm_percolation(nCol = 100, nRow = 100, prob=0.5)
-#'
+#' # simulate percolation model
+#' percolation <- nlm_percolation(ncol = 100, nrow = 100, prob=0.5)
+#' \dontrun{
+#' # visualize the NLM
+#' util_plot(percolation, discrete = TRUE)
+#' }
 #' @references
 #' 1. Gardner RH, O'Neill R V, Turner MG, Dale VH. 1989. Quantifying
 #' scale-dependent effects of animal movement with simple percolation models.
@@ -44,35 +48,38 @@
 #' @export
 #'
 
-nlm_percolation  <- function(nCol,
-                             nRow,
-                             resolution = 1,
-                             prob = 0.5) {
+nlm_percolation <- function(ncol,
+                            nrow,
+                            resolution = 1,
+                            prob = 0.5) {
 
   # Check function arguments ----
-  checkmate::assert_count(nCol, positive = TRUE)
-  checkmate::assert_count(nRow, positive = TRUE)
+  checkmate::assert_count(ncol, positive = TRUE)
+  checkmate::assert_count(nrow, positive = TRUE)
   checkmate::assert_numeric(resolution)
   checkmate::assert_true(prob <= 1, na.ok = FALSE)
   checkmate::assert_true(prob >= 0, na.ok = FALSE)
 
-  percolation_matrix <- matrix(NA, nrow = nRow, ncol = nCol)
+  percolation_matrix <- matrix(NA, nrow = nrow, ncol = ncol)
 
-  percolation_matrix[] <- vapply(percolation_matrix,
-                                 function(x){
-                                   ifelse(stats::runif(1,0,1) < prob, 1, 0)
-                                   },
-                                 numeric(1))
+  percolation_matrix[] <- vapply(
+    percolation_matrix,
+    function(x) {
+      ifelse(stats::runif(1, 0, 1) < prob, TRUE, FALSE)
+    },
+    logical(1)
+  )
 
   percolation_raster <-
     raster::raster(percolation_matrix)
 
   # specify resolution ----
-  raster::extent(percolation_raster) <- c(0,
-                                  ncol(percolation_raster)*resolution,
-                                  0,
-                                  nrow(percolation_raster)*resolution)
+  raster::extent(percolation_raster) <- c(
+    0,
+    ncol(percolation_raster) * resolution,
+    0,
+    nrow(percolation_raster) * resolution
+  )
 
   return(percolation_raster)
-
 }

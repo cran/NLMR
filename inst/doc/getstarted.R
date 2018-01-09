@@ -1,20 +1,24 @@
+## ----global_options, include=FALSE---------------------------------------
+library(raster)
+library(NLMR)
+
 ## ---- fig.height=7, fig.width=7, fig.align='center'----------------------
  x <- NLMR::nlm_random(20,20)
  NLMR::util_plot(x)
 
 ## ---- fig.height=7, fig.width=7, fig.align='center'----------------------
   #Create primary landscape raster
-  pL <- NLMR::nlm_edgegradient(nCol = 100,
-                              nRow = 100)
+  pL <- NLMR::nlm_edgegradient(ncol = 100,
+                               nrow = 100)
 
   NLMR::util_plot(pL)
 
   #Create secondary landscape rasters
-  sL1 <- NLMR::nlm_distancegradient(nCol = 100,
-                                    nRow = 100,
+  sL1 <- NLMR::nlm_distancegradient(ncol = 100,
+                                    nrow = 100,
                                     origin = c(10, 10, 10, 10))
-  sL2 <- NLMR::nlm_random(nCol = 100,
-                          nRow = 100)
+  sL2 <- NLMR::nlm_random(ncol = 100,
+                          nrow = 100)
 
   mL1 <- NLMR::util_merge(pL,
                           c(sL1, sL2),
@@ -23,8 +27,8 @@
   NLMR::util_plot(mL1)
 
 ## ----fig.height=7, fig.width=7, fig.align='center'-----------------------
-nr <- NLMR::nlm_randomcluster(nCol = 50,
-                              nRow = 50,
+nr <- NLMR::nlm_randomcluster(ncol = 50,
+                              nrow = 50,
                               resolution = 1,
                               neighbourhood = 4,
                               p = 0.5)
@@ -39,24 +43,25 @@ NLMR::util_plot(cr, discrete = TRUE)
 
 NLMR::metric_area(cr)
 
-## ----raster-example, message=FALSE, warning=FALSE------------------------
+## ----raster-example, message=FALSE, warning=FALSE, cache=TRUE------------
 library(raster)
 r <- raster(ncol=10, nrow=10, xmn=0, xmx=100, ymn=0, ymx=100)
 r
 
-## ----raster-example2, dependson='raster-example', message=FALSE, warning=FALSE----
+## ----raster-example2, dependson='raster-example', message=FALSE, warning=FALSE, cache=TRUE----
+library(raster)
 values(r) <- runif(ncell(r))
 r
 
 ## ----dependson='raster-example2', message=FALSE, warning=FALSE, fig.height=7, fig.width=7, fig.align='center'----
-plot(r)
+raster::plot(r)
 
 ## ----dependson='raster-example2', message=FALSE, warning=FALSE, fig.height=7, fig.width=7, fig.align='center'----
 r2 <- r * (abs(0.5 - r) * -2) + 1
 r3  <- NLMR::util_classify(r, c(0.5, 0.5))
-s <- stack(r, r2, r3)
+s <- raster::stack(r, r2, r3)
 s
-plot(s)
+raster::plot(s)
 
 ## ----dependson='raster-example', message=FALSE, warning=FALSE------------
 r <- raster(ncol=10, nrow=10, xmn=0, xmx=100, ymn=0, ymx=100)
@@ -65,7 +70,7 @@ ncol(r) <- 42
 dim(r)
 
 ## ----dependson='raster-example', message=FALSE, warning=FALSE------------
-r <- raster(ncol=10, nrow=10, xmn=0, xmx=100, ymn=0, ymx=100)
+r <- raster::raster(ncol=10, nrow=10, xmn=0, xmx=100, ymn=0, ymx=100)
 res(r)
 res(r) <- 42
 res(r)
@@ -112,7 +117,7 @@ r2 <- crop(r, extent(-10,50,-20, 10))
 m <- merge(r1, r2)
 plot(m)
 
-## ----message=FALSE, warning=FALSE----------------------------------------
+## ----dependson='raster-example', message=FALSE, warning=FALSE------------
 r <- raster(ncol=10, nrow=10)
 values(r) <- 1:ncell(r)
 
