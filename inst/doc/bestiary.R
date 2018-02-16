@@ -5,7 +5,7 @@ knitr::opts_chunk$set(
   fig.path = "README-"
 )
 
-## ---- , echo=FALSE, message=FALSE, dpi = 200, fig.align='center'---------
+## ---- echo=FALSE, message=FALSE, dpi = 200, fig.align='center'-----------
 knitr::include_graphics("bestiary_full.png")
 
 ## ---- , echo=FALSE, message=FALSE, dpi = 200, fig.align='center'---------
