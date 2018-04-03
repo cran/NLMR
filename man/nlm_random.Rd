@@ -8,10 +8,10 @@ nlm_random(ncol, nrow, resolution = 1, rescale = TRUE)
 }
 \arguments{
 \item{ncol}{[\code{numerical(1)}]\cr
-Number of columns for the raster.}
+Number of columns forming the raster.}
 
 \item{nrow}{[\code{numerical(1)}]\cr
-Number of rows for the raster.}
+Number of rows forming the raster.}
 
 \item{resolution}{[\code{numerical(1)}]\cr
 Resolution of the raster.}
@@ -23,7 +23,7 @@ If \code{TRUE} (default), the values are rescaled between 0-1.}
 RasterLayer
 }
 \description{
-Simulate a spatially random neutral landscape model with values
+Simulates a spatially random neutral landscape model with values
 drawn a uniform distribution.
 }
 \details{
@@ -37,7 +37,7 @@ random <- nlm_random(ncol = 200, nrow = 100)
 
 \dontrun{
 # visualize the NLM
-util_plot(random)
+rasterVis::levelplot(random, margin = FALSE, par.settings = rasterVis::viridisTheme())
 }
 
 }

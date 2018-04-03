@@ -6,19 +6,14 @@
 \alias{NLMR-package}
 \title{Simulating Neutral Landscape Models}
 \description{
-\emph{NLMR} is an R package for simulating neutral landscape models (NLM).
+\emph{NLMR} is an R package for simulating neutral landscape models (NLMs).
 }
 \details{
 This package contains vignettes that introduce NLM and basic usage
 of the \emph{NLMR} package. The vignettes in this package are listed below.
 
 \describe{
-\item{\href{https://marcosci.github.io/NLMR/articles/background.html}{NLM
-Concepts + Terminology}}{Background information on the concepts and
-terminology that underpin the simulation of neutral landscape models.}
-\item{\href{https://marcosci.github.io/NLMR/articles/bestiary.html}{NLMR
-Bestiary}}{Bestiary of the available neutral landscape models.}
-\item{\href{https://marcosci.github.io/NLMR/articles/getstarted.html}{
+\item{\href{https://ropensci.github.io/NLMR/articles/getstarted.html}{
 Quickstart Guide}}{Short walk-through of the \emph{NLMR} package and how to
 handle the simulations.}
 }
@@ -26,23 +21,27 @@ handle the simulations.}
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://marcosci.github.io/NLMR/}
-  \item Report bugs at \url{https://github.com/marcosci/NLMR/issues/}
+  \item \url{https://ropensci.github.io/NLMR/}
+  \item Report bugs at \url{https://github.com/ropensci/NLMR/issues/}
 }
 
 }
 \author{
-\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com}
+\strong{Maintainer}: Marco Sciaini \email{sciaini.marco@gmail.com} (0000-0002-3042-5435)
 
 Authors:
 \itemize{
   \item Matthias Fritsch \email{matthias.fritsch@forst.uni-goettingen.de}
-  \item Craig Simpkins \email{simpkinscraig063@gmail.com}
+  \item Craig Simpkins \email{simpkinscraig063@gmail.com} (0000-0003-3212-1379)
+  \item Cédric Scherer \email{cedricphilippscherer@gmail.com} (0000-0003-0465-2543)
 }
 
 Other contributors:
 \itemize{
-  \item Cédric Scherer \email{cedricphilippscherer@gmail.com} (Implemented nlm_neigh) [contributor]
+  \item Laura Graham (Laura reviewed the package for rOpenSci, see 
+                  https://github.com/ropensci/onboarding/issues/188) [NA]
+  \item Jeffrey Hollister (Jeffrey reviewed the package for rOpenSci, see 
+                  https://github.com/ropensci/onboarding/issues/188) [NA]
 }
 
 }

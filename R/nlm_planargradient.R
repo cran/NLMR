@@ -1,11 +1,11 @@
 #' nlm_planargradient
 #'
-#' @description Create a planar gradient neutral landscape model.
+#' @description Simulates a planar gradient neutral landscape model.
 #'
 #' @param ncol [\code{numerical(1)}]\cr
-#' Number of columns for the raster.
+#' Number of columns forming the raster.
 #' @param nrow  [\code{numerical(1)}]\cr
-#' Number of rows for the raster.
+#' Number of rows forming the raster.
 #' @param resolution  [\code{numerical(1)}]\cr
 #' Resolution of the raster.
 #' @param direction [\code{numerical(1)}]\cr
@@ -25,7 +25,7 @@
 #'
 #' \dontrun{
 #' # visualize the NLM
-#' util_plot(planar_gradient)
+#' rasterVis::levelplot(planar_gradient, margin = FALSE, par.settings = rasterVis::viridisTheme())
 #' }
 #'
 #' @seealso \code{\link{nlm_distancegradient}},

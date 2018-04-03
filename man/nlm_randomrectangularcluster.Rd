@@ -8,9 +8,9 @@ nlm_randomrectangularcluster(ncol, nrow, resolution = 1, minl, maxl,
   rescale = TRUE)
 }
 \arguments{
-\item{ncol}{[\code{numerical(1)}]\cr Number of columns for the raster.}
+\item{ncol}{[\code{numerical(1)}]\cr Number of columns forming the raster.}
 
-\item{nrow}{[\code{numerical(1)}]\cr Number of rows for the raster.}
+\item{nrow}{[\code{numerical(1)}]\cr Number of rows forming the raster.}
 
 \item{resolution}{[\code{numerical(1)}]\cr Resolution of the raster.}
 
@@ -21,10 +21,17 @@ nlm_randomrectangularcluster(ncol, nrow, resolution = 1, minl, maxl,
 \item{rescale}{[\code{logical(1)}]\cr If \code{TRUE} (default), the values are rescaled between 0-1.}
 }
 \value{
-RasterLayer with random values ranging from 0-1.
+RasterLayer
 }
 \description{
-Create a random rectangular cluster neutral landscape model with values ranging 0-1.
+Simulates a random rectangular clusters neutral landscape model with values ranging 0-1.
+}
+\details{
+The random rectangular cluster algorithm starts to fill a raster randomly
+with rectangles defined by \code{minl} and \code{maxl} until the surface
+of the landscape is completely covered.
+This is one type of realisation of a "falling/dead leaves" algorithm,
+for more details see Galerne & Goussea (2012).
 }
 \examples{
 # simulate random rectangular cluster
@@ -34,7 +41,15 @@ randomrectangular_cluster <- nlm_randomrectangularcluster(ncol = 30,
                                                           maxl = 10)
 \dontrun{
 # visualize the NLM
-util_plot(randomrectangular_cluster)
+rasterVis::levelplot(randomrectangular_cluster, margin = FALSE,
+par.settings = rasterVis::viridisTheme())
 }
 
+}
+\references{
+Gustafson, E.J. & Parker, G.R. (1992). Relationships between landcover
+proportion and indices of landscape spatial pattern. \emph{Landscape ecology},
+7, 101–110.
+Galerne B. & Gousseau Y. (2012). The Transparent Dead Leaves Model. Advances in
+Applied Probability, \emph{Applied Probability Trust}, 44, 1–20.
 }

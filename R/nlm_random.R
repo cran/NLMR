@@ -1,6 +1,6 @@
 #' nlm_random
 #'
-#' @description Simulate a spatially random neutral landscape model with values
+#' @description Simulates a spatially random neutral landscape model with values
 #' drawn a uniform distribution.
 #'
 #' @details
@@ -9,9 +9,9 @@
 #' value between 0 and 1 drawn from an uniform distribution (\code{runif(1,0,1)}).
 #'
 #' @param ncol [\code{numerical(1)}]\cr
-#' Number of columns for the raster.
+#' Number of columns forming the raster.
 #' @param nrow  [\code{numerical(1)}]\cr
-#' Number of rows for the raster.
+#' Number of rows forming the raster.
 #' @param resolution  [\code{numerical(1)}]\cr
 #' Resolution of the raster.
 #' @param rescale [\code{logical(1)}]\cr
@@ -25,7 +25,7 @@
 #'
 #' \dontrun{
 #' # visualize the NLM
-#' util_plot(random)
+#' rasterVis::levelplot(random, margin = FALSE, par.settings = rasterVis::viridisTheme())
 #' }
 #'
 #' @aliases nlm_random
