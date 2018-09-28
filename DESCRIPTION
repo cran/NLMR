@@ -1,7 +1,7 @@
 Package: NLMR
 Type: Package
 Title: Simulating Neutral Landscape Models
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: c(person("Marco", "Sciaini", email = "sciaini.marco@gmail.com", role = c("aut", "cre"), comment = c(ORCID = '0000-0002-3042-5435')), 
     person("Matthias", "Fritsch", email = "matthias.fritsch@forst.uni-goettingen.de", role = "aut"),
     person("Craig", "Simpkins", email = "simpkinscraig063@gmail.com",
@@ -32,15 +32,15 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Depends: R (>= 3.1.0)
-RoxygenNote: 6.0.1
-Imports: checkmate, dplyr, purrr, RandomFields, raster, spatstat,
-        stats, tibble, fasterize, sf
+RoxygenNote: 6.1.0
+Imports: checkmate, dplyr, RandomFields, raster, spatstat, stats,
+        tibble, fasterize, sf
 URL: https://ropensci.github.io/NLMR/
 BugReports: https://github.com/ropensci/NLMR/issues/
 Suggests: testthat, covr, knitr, rmarkdown, lintr, classInt, rasterVis
 VignetteBuilder: knitr
-NeedsCompilation: no
-Packaged: 2018-04-03 12:47:29 UTC; marco
+NeedsCompilation: yes
+Packaged: 2018-09-28 08:03:05 UTC; marco
 Author: Marco Sciaini [aut, cre] (<https://orcid.org/0000-0002-3042-5435>),
   Matthias Fritsch [aut],
   Craig Simpkins [aut] (<https://orcid.org/0000-0003-3212-1379>),
@@ -50,4 +50,4 @@ Author: Marco Sciaini [aut, cre] (<https://orcid.org/0000-0002-3042-5435>),
   Jeffrey Hollister [rev] (Jeffrey reviewed the package for rOpenSci, see
     https://github.com/ropensci/onboarding/issues/188)
 Repository: CRAN
-Date/Publication: 2018-04-03 12:56:01 UTC
+Date/Publication: 2018-09-28 08:20:07 UTC
