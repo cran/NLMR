@@ -1,6 +1,6 @@
-81d9f116133b6982654e58c6813e2d47 *DESCRIPTION
+5cacbafadc30f9c5b2ee9e39080e1b2e *DESCRIPTION
 af862248f7c78727ed9f36aca9f326ca *NAMESPACE
-7acc17bde3c6c3caad0e94a3bd905ded *NEWS.md
+ca5e2332b16d8d08c4313fc7da43d43a *NEWS.md
 a0f3538d8a68611d68eb176536b7b6a0 *R/NLMR.R
 a13fa0ea318645dc602d2f1e1dc455c4 *R/nlm_curds.R
 710e296f03d55a809ab7c9b206f86818 *R/nlm_distancegradient.R
@@ -19,10 +19,10 @@ a76d1a95be36beb4e4f0b7234804467b *R/nlm_mpd.R
 b182d183b7ca9eaafd78ef03afeade0e *R/nlm_randomrectangularcluster.R
 e880ae720c2bb7b938b564dd932c2785 *R/util_rescale.R
 c72d4c7e8ece680e31a17b9769957c25 *build/vignette.rds
-9f878a28b8e4a2deea791f25d4214f50 *inst/CITATION
+0b50f24712579e0ce66ae07f51c806f9 *inst/CITATION
 b7a45ee06764959b827f917a66ed94f8 *inst/doc/getstarted.R
 a14e3617c8602d1446148c3b69db963c *inst/doc/getstarted.Rmd
-8385d5d85428abe01e7f31612eb2e318 *inst/doc/getstarted.html
+8bfbf9b5c4f5e9929608685db934ddf4 *inst/doc/getstarted.html
 36adaecfd79ddd14593833d1b5d2665e *man/NLMR-package.Rd
 ae4e96716ccf603f42ceeaadedfc4801 *man/figures/logo.png
 7669f00374b79e107893a756f83c6595 *man/nlm_curds.Rd
@@ -67,11 +67,11 @@ a14e3617c8602d1446148c3b69db963c *vignettes/getstarted.Rmd
 34c8dbac13ff3a4c01f2b6ebbaeb5803 *vignettes/getstarted_cache/html/raster-example_9b049919680ba3fbabad5e34955ff32f.RData
 8425f723d6ab7e81ac1c8113a8f270fa *vignettes/getstarted_cache/html/raster-example_9b049919680ba3fbabad5e34955ff32f.rdb
 2a4aa209f0a901d0bc403ca130813142 *vignettes/getstarted_cache/html/raster-example_9b049919680ba3fbabad5e34955ff32f.rdx
-5ac60ce839eb5ca28b12727d5c81146c *vignettes/getstarted_files/figure-html/unnamed-chunk-1-1.png
+974d889a7a37879f34591e6c0014088f *vignettes/getstarted_files/figure-html/unnamed-chunk-1-1.png
 acf1821754ec1a27b686b9d9ae46367a *vignettes/getstarted_files/figure-html/unnamed-chunk-11-1.png
 e602b71f7c607675ac1ccd1c53655811 *vignettes/getstarted_files/figure-html/unnamed-chunk-12-1.png
-5dc3e4837fe8dcc7e9f459e6a5dbda88 *vignettes/getstarted_files/figure-html/unnamed-chunk-2-1.png
-d41d6f48aedd0e905bdd382e89e1f5e7 *vignettes/getstarted_files/figure-html/unnamed-chunk-2-2.png
-e7e8c747087473ea63f327b03153e9e9 *vignettes/getstarted_files/figure-html/unnamed-chunk-3-1.png
+002abbddaf02c596a3c3dbf421d27fb7 *vignettes/getstarted_files/figure-html/unnamed-chunk-2-1.png
+e51c9c4bff70e8e62f9466f0dabb8115 *vignettes/getstarted_files/figure-html/unnamed-chunk-2-2.png
+d68a47c22e9ed8e72abc1b48bb2ebad4 *vignettes/getstarted_files/figure-html/unnamed-chunk-3-1.png
 f0bfd61345f47b4561b7e5ffadc12379 *vignettes/getstarted_files/figure-html/unnamed-chunk-4-1.png
 09b92a1f9e7b2b7cb70735c376bd3353 *vignettes/getstarted_files/figure-html/unnamed-chunk-5-1.png
