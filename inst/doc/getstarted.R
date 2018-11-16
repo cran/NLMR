@@ -1,19 +1,17 @@
 ## ----global_options, include=FALSE---------------------------------------
 library(raster)
 library(NLMR)
-library(classInt)
-library(rasterVis)
 
 ## ---- fig.height=7, fig.width=7, fig.align='center'----------------------
 x <- NLMR::nlm_random(20,20)
-rasterVis::levelplot(x, margin = FALSE, par.settings = viridisTheme())
+plot(x)
 
 ## ---- fig.height=7, fig.width=7, fig.align='center'----------------------
   #Create primary landscape raster
   pL <- NLMR::nlm_edgegradient(ncol = 100,
                                nrow = 100)
 
-  rasterVis::levelplot(pL, margin = FALSE, par.settings = viridisTheme())
+  plot(pL)
 
   #Create secondary landscape rasters
   sL1 <- NLMR::nlm_distancegradient(ncol = 100,
@@ -24,18 +22,12 @@ rasterVis::levelplot(x, margin = FALSE, par.settings = viridisTheme())
 
   mL1 <- pL + (sL1 + sL2)
   
-  rasterVis::levelplot(mL1, margin = FALSE, par.settings = viridisTheme())
+  plot(mL1)
 
 ## ----fig.height=7, fig.width=7, fig.align='center'-----------------------
-nr <- NLMR::nlm_randomcluster(ncol = 50,
-                              nrow = 50,
-                              resolution = 1,
-                              neighbourhood = 4,
-                              p = 0.5)
+nr <- NLMR::nlm_fbm(50, 100, fract_dim = 1.2)
                               
-breaks <- classIntervals(raster::getValues(nr), n=5, style="jenks")
+nr_classified <- landscapetools::util_classify(nr, weighting = c(0.3, 0.3, 0.3))
 
-cr <-  raster::cut(nr, breaks=breaks$brks, include.lowest=T)
-
-rasterVis::levelplot(cr, margin = FALSE, par.settings = viridisTheme())
+plot(nr_classified, discrete = TRUE)
 

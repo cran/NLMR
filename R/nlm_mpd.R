@@ -48,11 +48,10 @@
 #' # simulate midpoint displacement
 #' midpoint_displacememt <- nlm_mpd(ncol = 100,
 #'                                  nrow = 100,
-#'                                  roughness = 0.61)
+#'                                  roughness = 0.3)
 #'\dontrun{
 #' # visualize the NLM
-#' rasterVis::levelplot(midpoint_displacememt, margin = FALSE,
-#' par.settings = rasterVis::viridisTheme())
+#' landscapetools::util_plot(midpoint_displacememt)
 #' }
 #' @aliases nlm_mpd
 #' @rdname nlm_mpd
@@ -75,56 +74,9 @@ nlm_mpd <- function(ncol,
   checkmate::assert_true(roughness <= 1.0 || roughness >= 0)
   checkmate::assert_logical(rescale)
 
-  # Init size of matrix (width and height 2^n + 1) and the corresponding matrix
-  max_dim <- max(nrow, ncol)
-  N <- as.integer(ceiling(base::log(max_dim - 1, 2)))
-  size <- 2 ** N + 1
-
-  # setup matrix ----
-  mpd_raster <- matrix(0, nrow = size, ncol = size)
-
-  # Main loop  ----
-  for (side.length in 2 ^ (N:1)) {
-    half.side <- side.length / 2
-
-    # Square step  ----
-    for (col in seq(1, size - 1, by = side.length)) {
-      for (row in seq(1, size - 1, by = side.length)) {
-        avg <- mean(c(
-          mpd_raster[row, col], # upper left
-          mpd_raster[row + side.length, col], # lower left
-          mpd_raster[row, col + side.length], # upper right
-          mpd_raster[row + side.length, col + side.length] # lower right
-        ))
-        avg <- avg  + stats::rnorm(1, 0, rand_dev)
-
-        mpd_raster[row + half.side, col + half.side] <- avg
-      }
-    }
-
-    # Diamond step  ----
-    for (row in seq(1, size, by = half.side)) {
-      for (col in seq( (col + half.side) %% side.length, size, side.length)) {
-        avg <- mean(c(
-          mpd_raster[(row - half.side + size) %% size, col], # above
-          mpd_raster[(row + half.side) %% size, col], # below
-          mpd_raster[row, (col + half.side) %% size], # right
-          mpd_raster[row, (col - half.side) %% size] # left
-        ))
-        mpd_raster[row, col] <- avg + stats::rnorm(1, 0, rand_dev)
-
-        if (row == 0) {
-          mpd_raster[size - 1, col] <- avg
-        }
-        if (col == 0) {
-          mpd_raster[row, size - 1] <- avg
-        }
-      }
-    }
-
-    # Redudce value for displacement by roughness ----
-    rand_dev <- rand_dev * roughness
-  }
+  # create the landscape with rcpp_mpd ----
+  seed <- sample.int(.Machine$integer.max, 1)
+  mpd_raster <- rcpp_mpd(ncol, nrow, rand_dev, roughness, seed)
 
   # Convert matrix to raster ----
   mpd_raster <- raster::raster(mpd_raster)
@@ -139,11 +91,11 @@ nlm_mpd <- function(ncol,
 
   # Rescale values to 0-1 ----
   if (rescale == TRUE) {
-    mpd_raster <- util_rescale(mpd_raster)
+    mpd_raster <- landscapetools::util_rescale(mpd_raster)
   }
 
   if (verbose == TRUE) {
-    message("nlm_mpd returns RasterLayer that fits in the dimension 2^n+1")
+    warning("nlm_mpd changes the dimensions of the RasterLayer if even ncols/nrows are choosen.")
   }
 
   return(mpd_raster)

@@ -62,12 +62,12 @@ The algorithm draws a random cell and turns it into a given category based on
 }
 \examples{
 # simulate neighborhood model
-neigh_raster <- nlm_neigh(ncol = 50, nrow = 50, p_neigh = 0.1, p_empty = 0.3,
+neigh_raster <- nlm_neigh(ncol = 50, nrow = 50, p_neigh = 0.7, p_empty = 0.1,
                     categories = 5, neighbourhood = 4)
 
 \dontrun{
 # visualize the NLM
-rasterVis::levelplot(neigh_raster, margin = FALSE, par.settings = rasterVis::viridisTheme())
+landscapetools::util_plot(neigh_raster)
 }
 
 }

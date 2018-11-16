@@ -1,7 +1,16 @@
 ____________________________________________________________________________________
+
+## NLMR 0.4 Release Notes
+
+- nlm_neigh, nlm_mpd and nlm_randomrectangularcluster are now implemented in Rcpp
+- all of the Rcpp also take the R random seed
+- Minor bug fixes
+- Improvements to documentation
+- More examples on the package website
+
 ## NLMR 0.3.2 Release Notes
 
-- Updated citation("NLMR")
+- Update citation 
 
 ## NLMR 0.3.1 Release Notes
 
