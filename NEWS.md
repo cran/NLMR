@@ -1,5 +1,9 @@
 ____________________________________________________________________________________
 
+## NLMR 0.4.1 Release Notes
+
+- Bugfix in nlm_mpd to not rely on landscapetools
+
 ## NLMR 0.4 Release Notes
 
 - nlm_neigh, nlm_mpd and nlm_randomrectangularcluster are now implemented in Rcpp
@@ -32,7 +36,7 @@ ________________________________________________________________________________
 ## NLMR 0.2.1 Release Notes
 
 - Skip one test on CRAN to keep the Roboto font available
-- Function `util_facetplot` to plot a list of rasters as ggplot2 facet
+- Function `show_landscape` to plot a list of rasters as ggplot2 facet
 - Small updates to the webpage
 
 ## NLMR 0.2 Release Notes

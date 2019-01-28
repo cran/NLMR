@@ -29,5 +29,5 @@ nr <- NLMR::nlm_fbm(50, 100, fract_dim = 1.2)
                               
 nr_classified <- landscapetools::util_classify(nr, weighting = c(0.3, 0.3, 0.3))
 
-plot(nr_classified, discrete = TRUE)
+plot(nr_classified)
 
