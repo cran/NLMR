@@ -1,5 +1,5 @@
-ded929a958dabb7fbbc2bf5b18545721 *DESCRIPTION
-682f7c14294fe4f71a8a96b9695def6f *NAMESPACE
+cc0a30d311a482014e981aa2e00a431b *DESCRIPTION
+5bb0dc141b97188a49b91e148747902c *NAMESPACE
 13de61e750175d7e06164e5891a4340c *NEWS.md
 dba1037ccc078c18650b29c659467b5e *R/NLMR.R
 6995f84549059a39e4704f38e9c4b3bf *R/RcppExports.R
@@ -8,7 +8,7 @@ f993ec75b25a300865861ab8677c2bf2 *R/nlm_distancegradient.R
 02d2aab5053f263894b603c7d4dad7fa *R/nlm_edgegradient.R
 0e47ae1c7b7999b5d8e6678eb66e0370 *R/nlm_fbm.R
 b32e007c27941e56ae386b0cfcc84cd8 *R/nlm_gaussianfield.R
-111b378ab42c154ebec883cffaad4753 *R/nlm_mosaicfield.R
+71481d1906a8fa5208ef8baa5a7bfa9a *R/nlm_mosaicfield.R
 ec3fe5a9caac6b473c14c5e79e68ee06 *R/nlm_mosaicgibbs.R
 f6c7d2a3a39e8957b94296fe052383a7 *R/nlm_mosaictess.R
 0da3b17494cd7ef255440b054749be1c *R/nlm_mpd.R
@@ -23,8 +23,8 @@ c72d4c7e8ece680e31a17b9769957c25 *build/vignette.rds
 6a691fbed687541660d68abaaa0c0657 *inst/CITATION
 37f3b7650db8efebf94d4c8c88ed8577 *inst/doc/getstarted.R
 82a406c29239a02f642ec02ce81dbab4 *inst/doc/getstarted.Rmd
-9eea489b9ae7eddd032cefd066c7c0d9 *inst/doc/getstarted.html
-11b7f9e92f5b088dc49a4a5d67b38551 *man/NLMR-package.Rd
+7cdb9f50687ccb64b303c6032d2ebce0 *inst/doc/getstarted.html
+f3e4583c3f26809fc007233d2e7a0846 *man/NLMR-package.Rd
 ae4e96716ccf603f42ceeaadedfc4801 *man/figures/logo.png
 807b7741249579b9e79aeeb5e73e037d *man/nlm_curds.Rd
 c56c4460fab7b269418dbf2f926fe60d *man/nlm_distancegradient.Rd
