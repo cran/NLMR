@@ -4,8 +4,16 @@
 \alias{nlm_mpd}
 \title{nlm_mpd}
 \usage{
-nlm_mpd(ncol, nrow, resolution = 1, roughness = 0.5, rand_dev = 1,
-  torus = FALSE, rescale = TRUE, verbose = TRUE)
+nlm_mpd(
+  ncol,
+  nrow,
+  resolution = 1,
+  roughness = 0.5,
+  rand_dev = 1,
+  torus = FALSE,
+  rescale = TRUE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{ncol}{[\code{numerical(1)}]\cr
